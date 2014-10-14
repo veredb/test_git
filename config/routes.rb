@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'users/update'
 
   get 'pages/hello'
-
+  get 'pages/new'
+  post 'pages/hello'
   get 'pages/about'
   root "pages#hello"
 

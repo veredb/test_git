@@ -1,4 +1,20 @@
 <%= stylesheet_link_tag "pages.css" %>
-<h1>Pages#hello</h1>
-<p>Find me in app/views/pages/hello.html.erb</p>
+<%= form_tag do %>
+    <%= label_tag :start_time %>
+    <%= text_field_tag :start_time, params[:start_time] %>
+    <%= label_tag :end_time %>
+    <%= text_field_tag :end_time, params[:end_time] %>
+    <%= submit_tag :submit %>
+<% end %>
+
+<p>Strat time is <%= @start_time %> <%= @end_time %></p>
+
+<h1>Hello Page</h1>
 <p><%= @message %></p>
+<h1>parsed json</h1>
+<p><%= @x %></p>
+<h1>raw json data</h1>
+<p><%= @data %></p>
+
+
+
