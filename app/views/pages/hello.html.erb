@@ -8,7 +8,10 @@
 <% end %>
 
 <p>Strat time is <%= @start_time %> <%= @end_time %></p>
-
+ @url = 'http://customers.uniguest.com/api/v1/hotel_events/WASRK.json?user_token=4605146972a12bf07259940b36d2fca2&start_date=<%= @start_time %>&end_date=<%= @end_time %>' 
+ @resp = Net::HTTP.get_response(URI.parse(@url))
+ @data = @resp.body
+ @x = JSON.parse(@data)
 <h1>Hello Page</h1>
 <p><%= @message %></p>
 <h1>parsed json</h1>
