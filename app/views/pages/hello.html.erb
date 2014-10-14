@@ -1,23 +1,25 @@
+<h1>Hello Page</h1>
 <%= stylesheet_link_tag "pages.css" %>
 <%= form_tag do %>
     <%= label_tag :start_time %>
-    <%= text_field_tag :start_time, params[:start_time] %>
+    <%= text_field_tag :start_time %>
     <%= label_tag :end_time %>
-    <%= text_field_tag :end_time, params[:end_time] %>
+    <%= text_field_tag :end_time %>
     <%= submit_tag :submit %>
 <% end %>
 
 <p>Strat time is <%= @start_time %> <%= @end_time %></p>
- @url = 'http://customers.uniguest.com/api/v1/hotel_events/WASRK.json?user_token=4605146972a12bf07259940b36d2fca2&start_date=<%= @start_time %>&end_date=<%= @end_time %>' 
- @resp = Net::HTTP.get_response(URI.parse(@url))
- @data = @resp.body
- @x = JSON.parse(@data)
-<h1>Hello Page</h1>
+
 <p><%= @message %></p>
+<% @url1 = 'http://customers.uniguest.com/api/v1/hotel_events/WASRK.json?user_token=4605146972a12bf07259940b36d2fca2' %>
+<% @url = @url1 + '&start_date=' + params[:start_time] + '&end_date=' + params[:end_time] %>
 <h1>parsed json</h1>
+<% @resp = Net::HTTP.get_response(URI.parse(@url)) %>
+<% @data = @resp.body %>
+<% @x = JSON.parse(@data) %>
 <p><%= @x %></p>
 <h1>raw json data</h1>
 <p><%= @data %></p>
 
-
+<%= @url %>
 
