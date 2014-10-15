@@ -27,3 +27,16 @@ describe "failure" do
       end
    end
 end
+
+
+describe "success" do
+   it "should give the right results" do
+      lambda do
+         visit pages_hello_path
+         fill_in :start_time,    :with => "20141014"
+         fill_in :end_time,      :with => "20141015"
+         click_button
+         response.should render_template('pages/hello')
+      end
+   end
+end
