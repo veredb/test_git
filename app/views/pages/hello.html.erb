@@ -1,4 +1,4 @@
-<h1>Hello Page</h1>
+<title>Hello Page</title>
 <%= stylesheet_link_tag "pages.css" %>
 <%= form_tag do %>
     <%= label_tag :start_time %>
@@ -10,16 +10,16 @@
 
 <p>Strat time is <%= @start_time %> <%= @end_time %></p>
 
+
 <p><%= @message %></p>
 <% @url1 = 'http://customers.uniguest.com/api/v1/hotel_events/WASRK.json?user_token=4605146972a12bf07259940b36d2fca2' %>
-<% @url = @url1 + '&start_date=' + params[:start_time] + '&end_date=' + params[:end_time] %>
+<% @url = @url1 + '&start_date=' + params[:start_time].to_s + '&end_date=' + params[:end_time].to_s %>
 <h1>parsed json</h1>
 <% @resp = Net::HTTP.get_response(URI.parse(@url)) %>
-<% @data = @resp.body %>
+<% @data = @resp.try(:body) %>
 <% @x = JSON.parse(@data) %>
 <p><%= @x %></p>
 <h1>raw json data</h1>
 <p><%= @data %></p>
 
 <%= @url %>
-
