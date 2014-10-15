@@ -1,18 +1,7 @@
 Rails.application.routes.draw do
-  resources :users 
-  get 'users/new'
-  get 'users/index'
-  match '/index' => 'users#index', via: [:post, :get]
-  get 'users/show'
-
-  get 'users/delete'
-
-  get 'users/update'
 
   get 'pages/hello'
-  get 'pages/new'
   post 'pages/hello'
-  get 'pages/about'
   root "pages#hello"
 
   # The priority is based upon order of creation: first created -> highest priority.
