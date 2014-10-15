@@ -1,5 +1,5 @@
 This app is on Ruby on Rails 4 framework. 
-The perpose is to create a web app that consumes the data from an API (json format)
+The goal is to create a web app that consumes the data from an API (json format)
 and outputs the result into a datagrid.
 The app is supported by TDD - rspec-rails and webrat.
 
